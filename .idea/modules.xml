@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/consumer/consumer.iml" filepath="$PROJECT_DIR$/consumer/consumer.iml" />
+      <module fileurl="file://$PROJECT_DIR$/eurekaserver_one/eurekaserver_one.iml" filepath="$PROJECT_DIR$/eurekaserver_one/eurekaserver_one.iml" />
+      <module fileurl="file://$PROJECT_DIR$/eurekaserver_two/eurekaserver_two.iml" filepath="$PROJECT_DIR$/eurekaserver_two/eurekaserver_two.iml" />
+      <module fileurl="file://$PROJECT_DIR$/producter/producter.iml" filepath="$PROJECT_DIR$/producter/producter.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/springcloudCluster.iml" filepath="$PROJECT_DIR$/.idea/springcloudCluster.iml" />
+    </modules>
+  </component>
+</project>

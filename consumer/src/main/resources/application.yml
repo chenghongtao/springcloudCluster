@@ -1,0 +1,10 @@
+server:
+  port: 10090
+
+eureka:
+ client:
+   service-url:
+     defaultZone: http://slave1:10086/eureka/,http://slave2:10087/eureka/
+spring:
+    application:
+      name: consumer
