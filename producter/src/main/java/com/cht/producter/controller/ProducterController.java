@@ -11,9 +11,17 @@ import javax.servlet.http.HttpServletRequest;
 @RequestMapping("/producter")
 public class ProducterController {
 
-    @GetMapping("/hello")
-    public String sayHello(@RequestParam String name,HttpServletRequest request){
-        System.out.println(request.getLocalPort()+":"+request.getLocalAddr());
-        return name+", hello  "+request.toString();
-    }
+	@GetMapping("/hello")
+	public String sayHello(@RequestParam String name, HttpServletRequest request) {
+		System.out.println(request.getLocalPort() + ":" + request.getLocalAddr());
+		return name + ", hello  " + request.toString();
+	}
+
+	@GetMapping("/serviceBreaker")
+	public String serviceBreaker(Integer id) {
+		if (id == 1) {
+			throw new RuntimeException();
+		}
+		return id + " serviceBreaker sucess";
+	}
 }

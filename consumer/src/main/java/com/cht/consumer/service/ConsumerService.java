@@ -5,13 +5,18 @@ import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
-import com.netflix.hystrix.contrib.javanica.annotation.HystrixCommand;
-import com.netflix.ribbon.proxy.annotation.Hystrix;
-
 @FeignClient(name="producter",url = "http://slave1:10012/")
 @Service
+//@CacheConfig(cacheNames = {"com.cht.test"})
 public interface ConsumerService {
-    @GetMapping("/producter/hello")
-    String sayHello(@RequestParam(value = "name") String name);
-
+	
+    @GetMapping(value="/producter/hello")
+    String sayHello(@RequestParam("name") String name);
+    
+    //@Cacheable(key="#p0")
+    @GetMapping(value="/producter/hello")
+    String hello(String id);
+    
+    @GetMapping(value="/producter/serviceBreaker")
+	String serviceBreaker(@RequestParam("id") Integer id);
 }
