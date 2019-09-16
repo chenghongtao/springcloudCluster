@@ -53,21 +53,33 @@ public class ConsumerController {
 	}
 
 	// =======================线程池隔离示例==============================
-	@HystrixCommand(groupKey="consumer", commandKey = "threadPoolSeverance",
-		    threadPoolKey="e-book-product", 
-		    		threadPoolProperties = {
-		            @HystrixProperty(name = "coreSize", value = "30"),//线程池大小
-		            @HystrixProperty(name = "maxQueueSize", value = "100"),//最大队列长度
-		            @HystrixProperty(name = "keepAliveTimeMinutes", value = "2"),//线程存活时间
-		            @HystrixProperty(name = "queueSizeRejectionThreshold", value = "15")//拒绝请求
-		    },
-		    fallbackMethod = "threadPool")
+	@HystrixCommand(groupKey = "consumer", commandKey = "threadPoolSeverance", threadPoolKey = "e-book-product", threadPoolProperties = {
+			@HystrixProperty(name = "coreSize", value = "30"), // 线程池大小
+			@HystrixProperty(name = "maxQueueSize", value = "100"), // 最大队列长度
+			@HystrixProperty(name = "keepAliveTimeMinutes", value = "2"), // 线程存活时间
+			@HystrixProperty(name = "queueSizeRejectionThreshold", value = "15")// 拒绝请求
+	}, fallbackMethod = "threadPool")
 	public String threadPoolSeverance(@RequestParam Integer id) {
 		return String.valueOf(id);
 	}
-	
-	//回调函数
-	public String threadPool() {
+
+	// 回调函数
+	public String threadPool(Integer id) {
+		return "error";
+	}
+
+	// ===================信号量隔离================
+	@HystrixCommand(fallbackMethod = "semaphore", commandProperties = {
+			@HystrixProperty(name = HystrixPropertiesManager.EXECUTION_ISOLATION_STRATEGY, value = "SEMAPHORE"), // 信号量隔离
+			@HystrixProperty(name = HystrixPropertiesManager.EXECUTION_ISOLATION_SEMAPHORE_MAX_CONCURRENT_REQUESTS, 
+			value = "100")// 信号量最大并发度
+	})
+	public String SemaphoreSeverance(@RequestParam Integer id) {
+		return null;
+	}
+
+	// 回调函数
+	public String semaphore(Integer id) {
 		return "error";
 	}
 }
