@@ -1,18 +1,27 @@
-
 server:
-  port: 10010
-
+  port: 10012
+  #compression:
+    #enabled: true
+    #mime-types: application/json,application/xml,text/xml,text/html,text/plain
+  
 eureka:
-  #instance:
+  instance:
     #eureka服务端的实例名称
-    #hostname: producter
+    hostname: producter
   client:
     # false表示不向注册中心注册自己
-    # register-with-eureka: true
+     registerWithEureka: true
     # false表示自己端就是注册中心，我的职责就是维护服务实例，并不需要去检索服务
-    # fetch-registry: true
-    service-url:
-      defaultZone: http://slave1:10086/eureka/,http://slave2:10087/eureka/
+     fetchRegistry: true
+     serviceUrl:
+       defaultZone: http://slave1:10086/eureka/,http://slave2:10087/eureka/
 spring:
     application:
       name: producter
+      
+#日志相关      
+logging:
+          #日志文件路径
+    #path: d:/log
+          #日志文件名称
+    file: d:/log/myLog.log

@@ -5,12 +5,15 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+import javax.servlet.http.HttpServletRequest;
+
 @RestController
 @RequestMapping("/producter")
 public class ProducterController {
 
     @GetMapping("/hello")
-    public String sayHello(@RequestParam String name){
-        return name+", hello";
+    public String sayHello(@RequestParam String name,HttpServletRequest request){
+        System.out.println(request.getLocalPort()+":"+request.getLocalAddr());
+        return name+", hello  "+request.toString();
     }
 }

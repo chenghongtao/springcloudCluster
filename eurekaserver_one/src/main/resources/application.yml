@@ -4,10 +4,10 @@ eureka:
    instance:
      hostname: slave1
    client:
-      registerWithEureka: true
-      fetchRegistry: true
+      registerWithEureka: false
+      fetchRegistry: false
       serviceUrl:
-         defaultZone: http://slave2:10087/eureka/
+         defaultZone: http://slave1:10087/eureka/
 spring:
   application:
     name: eurekaserver_one

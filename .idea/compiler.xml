@@ -17,6 +17,7 @@
       <module name="eurekaserver_one" target="1.8" />
       <module name="eurekaserver_two" target="1.8" />
       <module name="producter" target="1.8" />
+      <module name="testcluser" target="1.5" />
     </bytecodeTargetLevel>
   </component>
 </project>
