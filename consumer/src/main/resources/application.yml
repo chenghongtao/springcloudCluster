@@ -12,3 +12,7 @@ eureka:
 spring:
     application:
       name: consumer
+      
+feign:
+  hystrix:
+    enabled: true

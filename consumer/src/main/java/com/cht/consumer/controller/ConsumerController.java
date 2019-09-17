@@ -19,7 +19,7 @@ public class ConsumerController {
 	private ConsumerService service;
 
 	// 指定返回托底数据的函数
-	@HystrixCommand(fallbackMethod = "hello")
+	//@HystrixCommand(fallbackMethod = "hello")
 	@GetMapping("/hello")
 	public String sayHello(@RequestParam String name) {
 		return service.sayHello(name);
