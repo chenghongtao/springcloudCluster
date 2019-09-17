@@ -5,10 +5,12 @@ import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import com.cht.consumer.exception.ConsumerServiceFallBackFactory;
 import com.cht.consumer.hystrix.ConsumerFallBack;
 
 @FeignClient(name = "producter", url = "http://slave1:10012/", 
-fallback = ConsumerFallBack.class)
+fallback = ConsumerFallBack.class, 
+fallbackFactory = ConsumerServiceFallBackFactory.class)
 @Service
 //@CacheConfig(cacheNames = {"com.cht.test"})
 public interface ConsumerService {
