@@ -16,19 +16,14 @@ import com.netflix.hystrix.contrib.metrics.eventstream.HystrixMetricsStreamServl
 
 import feign.Logger;
 
+//监控的项目
 @SpringBootApplication
-//@EnableEurekaClient
-//@EnableFeignClients
-//@EnableCircuitBreaker
-//@EnableCaching
-
-//@EnableHystrix
+@EnableEurekaClient
+@EnableFeignClients
+@EnableCircuitBreaker
 @EnableHystrixDashboard
-
-//集群监控
 @EnableTurbine
-
-public class ConsumerApplication {
+public class ConsumerTwoApplication {
 
 	@Bean
 	public Logger.Level getLog() {
@@ -36,7 +31,7 @@ public class ConsumerApplication {
 	}
 
 	public static void main(String[] args) {
-		SpringApplication.run(ConsumerApplication.class, args);
+		SpringApplication.run(ConsumerTwoApplication.class, args);
 	}
 
 	@Bean

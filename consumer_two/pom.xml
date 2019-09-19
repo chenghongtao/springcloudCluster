@@ -10,9 +10,9 @@
 		<relativePath /> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>com.cht</groupId>
-	<artifactId>consumer</artifactId>
+	<artifactId>consumer_two</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>consumer</name>
+	<name>consumer_two</name>
 	<description>Demo project for Spring Boot</description>
 
 	<properties>
@@ -82,10 +82,7 @@
 			<groupId>org.springframework.cloud</groupId>
 			<artifactId>spring-cloud-netflix-turbine</artifactId>
 		</dependency>
-		<dependency>
-			<groupId>org.springframework.cloud</groupId>
-			<artifactId>spring-cloud-starter-netflix-turbine</artifactId>
-		</dependency>
+
 
 	</dependencies>
 
